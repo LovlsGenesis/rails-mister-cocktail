@@ -1,1 +1,19 @@
-<%= @cocktail.name %>
+<div class="text-center">
+  <div class=restaurant_infos>
+    <h1><%= @cocktail.name %></h1>
+    <% @cocktail.doses.each do |dose| %>
+    <%= dose.ingredient.name %>
+    <%= dose.description %>
+    <% end %>
+  </div>
+
+
+  <div class="redirect mt-5">
+
+    <%= link_to "Back to cocktails", cocktails_path %>
+    <%= link_to "Edit", edit_cocktail_path(@cocktail) %>
+    <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail) %>
+    <%= link_to "Delete", cocktail_path(@cocktail), method: "delete",
+          data: { confirm: "Are you sure?" } %>
+  </div>
+</div>

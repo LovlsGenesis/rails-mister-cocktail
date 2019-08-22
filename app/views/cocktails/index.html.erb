@@ -1,1 +1,8 @@
-<%= @cocktails.name %>
+<h1>Welcome to the Anonymous Bar!</h1>
+<p>Our best cocktails:</p>
+<% @cocktails.each do |cocktail| %>
+  <div class="card-category">
+    <%= link_to cocktail.name, cocktail %>
+  </div>
+<% end %>
+<%= link_to "Add a cocktail!", new_cocktail_path %>

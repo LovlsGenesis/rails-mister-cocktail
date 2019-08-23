@@ -1,3 +1,12 @@
+  <div class="navbar">
+
+    <div class="border"><%= link_to "Back to cocktails", cocktails_path, :class => "links" %></div>
+    <div class="border"><%= link_to "Edit", edit_cocktail_path(@cocktail), :class => "links" %></div>
+    <div class="border"><%= link_to "Add a dose", new_cocktail_dose_path(@cocktail), :class => "links" %></div>
+    <div class="border"><%= link_to "Delete", cocktail_path(@cocktail), :class => "links", method: "delete",
+          data: { confirm: "Are you sure?" } %></div>
+  </div>
+
 <div class="text-center">
   <div class=restaurant_infos>
     <h1><%= @cocktail.name %></h1>
@@ -6,14 +15,20 @@
     <%= dose.description %>
     <% end %>
   </div>
+</div>
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1>Add Ingredient to <%= @cocktail.name %></h1>
+      <%= simple_form_for [@cocktail, @cocktail.ingredient] do |f| %>
 
-  <div class="redirect mt-5">
+        <%= f.input :tag, collection: Tag.all, input_html: { multiple: true, class: 'select2' }, include_hidden: false  %>
 
-    <%= link_to "Back to cocktails", cocktails_path %>
-    <%= link_to "Edit", edit_cocktail_path(@cocktail) %>
-    <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail) %>
-    <%= link_to "Delete", cocktail_path(@cocktail), method: "delete",
-          data: { confirm: "Are you sure?" } %>
+        <%= f.submit 'Add Ingredient', class: 'btn btn-primary' %>
+
+      <% end %>
+
+    </div>
   </div>
 </div>

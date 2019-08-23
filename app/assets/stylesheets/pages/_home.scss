@@ -1,1 +1,9 @@
-// Specific CSS for your home-page
+@import "components/card";
+@import "components/banner";
+@import "components/footer";
+@import "components/buttons";
+@import "components/mynavbar";
+
+.viewheight {
+  min-height: 430px;
+}

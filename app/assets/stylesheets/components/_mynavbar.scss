@@ -1,0 +1,26 @@
+.navbar {
+  background: #E5E3E3;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100px;
+  padding: 0px 50px;
+  color: rgba(0,0,0,0.3);
+  margin-bottom: 10px;
+}
+
+.links {
+  color:black;
+  font-weight:bolder;
+  opacity:0.5;
+}
+
+.links:hover {
+  text-decoration: none;
+  color: black;
+  opacity:1;
+}
+
+.border {
+  border-box:solid 2px white;
+}
